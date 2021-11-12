@@ -14,6 +14,8 @@ public class User implements Serializable {
     private String password;
     private String phone;
 
+    public User(){}
+
     public User(Long id, String name, String email, String password, String phone) {
         this.id = id;
         this.name = name;
@@ -60,5 +62,16 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }
