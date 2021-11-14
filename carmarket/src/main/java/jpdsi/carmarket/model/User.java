@@ -1,5 +1,7 @@
 package jpdsi.carmarket.model;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,6 +11,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
+    @Column(nullable = false)
     private String name;
     private String email;
     private String password;

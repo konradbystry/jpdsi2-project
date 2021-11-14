@@ -6,6 +6,8 @@ import jpdsi.carmarket.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private final UserRepo userRepo;
@@ -25,5 +27,9 @@ public class UserService {
 
     public User findUserById(Long id) {
         return (User) userRepo.findUserById(id).orElseThrow(()-> new UserNotFoundException("User with id " + id + " was not found"));
+    }
+
+    public List<User> findAllUsers(){
+        return userRepo.findAll();
     }
 }

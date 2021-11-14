@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserResource {
@@ -31,5 +33,11 @@ public class UserResource {
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id){
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> allUsers = userService.findAllUsers();
+        return new ResponseEntity<>(allUsers, HttpStatus.OK);
     }
 }
