@@ -1,7 +1,5 @@
 package jpdsi.carmarket.model;
 
-import org.springframework.boot.context.properties.bind.DefaultValue;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,17 +12,19 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String name;
     private String email;
-    private String password;
     private String phone;
+    private String role;
+    private String password;
 
     public User(){}
 
-    public User(Long id, String name, String email, String password, String phone) {
+    public User(Long id, String name, String email, String phone, String role, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
         this.phone = phone;
+        this.role = role;
+        this.password = password;
     }
 
     public Long getId() {
@@ -51,13 +51,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getPhone() {
         return phone;
@@ -76,5 +69,21 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
