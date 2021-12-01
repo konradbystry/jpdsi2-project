@@ -28,10 +28,15 @@ public class SeciurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/welcomeUser").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/welcomeAdmin").hasRole("ADMIN")
+                .antMatchers("/user/add").permitAll()
                 .and()
                 .formLogin().permitAll()
                 .and()
-                .logout().permitAll();
+                .logout().permitAll()
+                .and()
+                .csrf().disable();
+
+
     }
 
     @Bean

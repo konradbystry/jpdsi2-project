@@ -10,21 +10,24 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     @Column(nullable = false)
-    private String name;
+    private String userName;
     private String email;
     private String phone;
-    private String role;
+    private String roles;
     private String password;
+    private boolean active;
+
 
     public User(){}
 
-    public User(Long id, String name, String email, String phone, String role, String password) {
+    public User(Long id, String userName, String email, String phone, String roles, String password, boolean active) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.email = email;
         this.phone = phone;
-        this.role = role;
+        this.roles = roles;
         this.password = password;
+        this.active = active;
     }
 
     public Long getId() {
@@ -35,12 +38,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -64,19 +67,19 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
     }
 
-    public String getRole() {
-        return role;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     public String getPassword() {
@@ -85,5 +88,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
