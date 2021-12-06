@@ -2,6 +2,7 @@ package jpdsi.carmarket.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class User implements Serializable {
@@ -17,10 +18,16 @@ public class User implements Serializable {
     private String password;
     private boolean active;
 
+    @ManyToMany
+    @JoinTable(
+            name = "car_watch",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id"))
+    Set<Car> watchedCars;
 
     public User(){}
 
-    public User(Long id, String userName, String email, String phone, String roles, String password, boolean active) {
+    public User(Long id, String userName, String email, String phone, String roles, String password, boolean active, Set<Car> watchedCars) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -28,6 +35,7 @@ public class User implements Serializable {
         this.roles = roles;
         this.password = password;
         this.active = active;
+        this.watchedCars = watchedCars;
     }
 
     public Long getId() {
@@ -96,5 +104,17 @@ public class User implements Serializable {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Set<Car> getWatchedCars() {
+        return watchedCars;
+    }
+
+    public void setWatchedCars(Set<Car> watchedCars) {
+        this.watchedCars = watchedCars;
     }
 }
