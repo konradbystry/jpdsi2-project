@@ -21,4 +21,9 @@ public class HomeResource {
     public String welcomeAdmin(){
         return "Welcome Admin!";
     }
+
+    @GetMapping("/user")
+    public String user(){
+        return "USER";
+    }
 }
