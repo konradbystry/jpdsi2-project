@@ -6,6 +6,8 @@ import jpdsi.carmarket.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarService {
     public final CarRepo carRepo;
@@ -17,6 +19,10 @@ public class CarService {
 
     public Car addCar(Car car){
         return carRepo.save(car);
+    }
+
+    public List<Car> findAllCars(){
+        return carRepo.findAll();
     }
 
 }
