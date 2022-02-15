@@ -17,10 +17,15 @@ public class Car implements Serializable {
     String engine;
     String power;
 
+
+    String imageUrl;
+
     @ManyToMany(mappedBy = "watchedCars")
     Set<User> watches;
 
-    public Car(Long id, String brand, String model, String year, String distance, String engine, String power, Set<User> watches) {
+    public Car(){};
+
+    public Car(Long id, String brand, String model, String year, String distance, String engine, String power, String imageUrl, Set<User> watches) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -29,6 +34,7 @@ public class Car implements Serializable {
         this.engine = engine;
         this.power = power;
         this.watches = watches;
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
@@ -94,4 +100,13 @@ public class Car implements Serializable {
     public void setWatches(Set<User> watches) {
         this.watches = watches;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
 }
