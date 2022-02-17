@@ -64,7 +64,12 @@ public class WebSeciurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/api/equipment/delete/{id}").hasAnyRole("USER","MODERATOR","ADMIN")
                 .antMatchers("/api/equipment/{id}").permitAll()
                 .antMatchers("/api/user/**").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/wishes/**").permitAll()
+                .antMatchers("/car/add").permitAll()
+                .antMatchers("/car/**").permitAll()
+                .antMatchers("/user/**").permitAll()
+                .antMatchers("/api/watches/**").permitAll()
                 .anyRequest().authenticated();
 
 

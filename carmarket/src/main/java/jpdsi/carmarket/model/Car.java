@@ -16,6 +16,9 @@ public class Car implements Serializable {
     String distance;
     String engine;
     String power;
+    String price;
+
+    String phone;
 
 
     String imageUrl;
@@ -24,7 +27,7 @@ public class Car implements Serializable {
 
     public Car(){};
 
-    public Car(Long id, String brand, String model, String year, String distance, String engine, String power, String imageUrl) {
+    public Car(Long id, String brand, String model, String year, String distance, String engine, String power, String imageUrl, String price, String phone) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -34,6 +37,8 @@ public class Car implements Serializable {
         this.power = power;
 
         this.imageUrl = imageUrl;
+        this.price = price;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -102,4 +107,19 @@ public class Car implements Serializable {
         this.imageUrl = imageUrl;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

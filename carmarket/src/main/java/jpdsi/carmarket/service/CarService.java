@@ -25,4 +25,18 @@ public class CarService {
         return carRepo.findAll();
     }
 
+
+    public void deleteCar(Long id){
+        carRepo.deleteById(id);
+    }
+
+    public Car updateCar(Car car){
+        return carRepo.save(car);
+    }
+
+    public Car findCarById(Long id){
+        return carRepo.findCarById(id).get();
+    }
+
+
 }
